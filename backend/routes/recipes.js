@@ -4,12 +4,12 @@ const Recipe = require('../models/Recipe');
 const router = express.Router();
 
 // GET all recipes
-router.get('/', async (req, res) => {
+router.get('/recipes', async (req, res) => {
   try {
     const recipes = await Recipe.find();
     res.json(recipes);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'Error fetching recipes' });
   }
 });
 
